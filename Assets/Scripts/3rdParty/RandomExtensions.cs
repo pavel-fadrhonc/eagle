@@ -18,8 +18,8 @@ namespace Superbest_random
         /// <returns></returns>
         public static double NextGaussian(this Random r, double mu = 0, double sigma = 1)
         {
-            var u1 = r.NextDouble();
-            var u2 = r.NextDouble();
+            var u1 = 1.0 - r.NextDouble();
+            var u2 = 1.0 - r.NextDouble();
 
             var rand_std_normal = Math.Sqrt(-2.0 * Math.Log(u1)) *
                                 Math.Sin(2.0 * Math.PI * u2);

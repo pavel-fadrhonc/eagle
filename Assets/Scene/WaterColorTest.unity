@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 100745908}
   - component: {fileID: 100745907}
   - component: {fileID: 100745906}
+  - component: {fileID: 100745910}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -194,6 +195,113 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &100745910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 100745905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: c303576817d8c824a93b646ec1200e01, type: 2}
+--- !u!1 &1444402522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1444402525}
+  - component: {fileID: 1444402524}
+  - component: {fileID: 1444402523}
+  m_Layer: 0
+  m_Name: WaterColorDrop (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1444402523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444402522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d50463f26545e6448caf64423197f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDuration: 8
+  maxScale: 3
+  variationMin: 0
+  variationMax: 0.6
+  rotationAngleVarMin: -8
+  rotationAngleVarMax: 8
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 2.88327
+      outSlope: 2.88327
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  animate: 0
+  durationVariationMin: 0.1
+  durationVariationMax: 0.3
+  scaleVariationMin: 0.1
+  scaleVariationMax: 0.1
+--- !u!114 &1444402524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444402522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf1987d4fea2b64884328110366f22b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startVerticesCount: 10
+  circleRadius: 4
+  numDeformationsInitial: 2
+  numDeformationsVariation: 3
+  numLayers: 200
+  usedMaterial: {fileID: 2100000, guid: 2acecbbd6b9f1c644bc78468c1d01617, type: 2}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  gauss_um_initial: 0
+  gauss_sigma_initial: 0.4
+  gauss_um_addition: 0
+  gauss_sigma_additional: 0.45
+  interleaveLayers: 1
+  interleaveLayersStep: 5
+  regenerate: 0
+--- !u!4 &1444402525
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444402522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.44, y: -0.38, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485727940
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +326,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1485727940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.34, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -236,16 +344,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startVerticesCount: 10
-  circleRadius: 1
+  circleRadius: 4
   numDeformationsInitial: 2
   numDeformationsVariation: 3
   numLayers: 200
   usedMaterial: {fileID: 2100000, guid: 2acecbbd6b9f1c644bc78468c1d01617, type: 2}
-  usedColor: {r: 1, g: 0, b: 0, a: 0.047}
+  m_Color: {r: 1, g: 0.42647058, b: 0.42647058, a: 0.023529412}
   gauss_um_initial: 0
   gauss_sigma_initial: 0.4
   gauss_um_addition: 0
   gauss_sigma_additional: 0.45
+  interleaveLayers: 0
+  interleaveLayersStep: 5
   regenerate: 0
 --- !u!114 &1485727943
 MonoBehaviour:
@@ -258,12 +368,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d50463f26545e6448caf64423197f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animDuration: 5
-  maxScale: 3
+  animDuration: 8
+  maxScale: 1
   variationMin: 0
   variationMax: 0.6
-  rotationAngleVarMin: -5
-  rotationAngleVarMax: 5
+  rotationAngleVarMin: -8
+  rotationAngleVarMax: 8
   scaleCurve:
     serializedVersion: 2
     m_Curve:

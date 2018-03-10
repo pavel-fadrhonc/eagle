@@ -16,13 +16,32 @@ public class WaterColorDrop : MonoBehaviour
     public int numLayers = 5;
 
     public Material usedMaterial;
-    public Color usedColor;
+
+    [SerializeField]
+    private Color m_Color;
+
+    public Color Color
+    {
+        get { return m_Color; }
+        set
+        {
+            m_Color = value;
+            foreach (var layer in Layers) 
+            {
+                var rend = layer.GetComponent<MeshRenderer>();
+                rend.material.color = value;
+            }
+        }
+    }
 
     public float gauss_um_initial = 0f;
     public float gauss_sigma_initial = 1f;
 
     public float gauss_um_addition = 0f;
     public float gauss_sigma_additional = 1f;
+
+    public bool interleaveLayers = false;
+    public int interleaveLayersStep = 5;
 
     public bool regenerate = false;
 
@@ -41,7 +60,7 @@ public class WaterColorDrop : MonoBehaviour
     public void Update()
     {
         if (regenerate)
-        {
+        {       
             Regenerate();
             regenerate = false;
         }
@@ -77,6 +96,8 @@ public class WaterColorDrop : MonoBehaviour
                 layerMeshRend = layerGo.AddComponent<MeshRenderer>();
                 layerMeshFilter = layerGo.AddComponent<MeshFilter>();
                 layerGo.transform.SetParent(transform);
+                layerGo.transform.localPosition = Vector3.zero;
+                layerMeshRend.sortingOrder = layerIdx / interleaveLayersStep;
                 _layers.Add(layerGo);
             }
             else
@@ -115,7 +136,7 @@ public class WaterColorDrop : MonoBehaviour
             layerMeshFilter.mesh = msh;
 
             var mat = new Material(usedMaterial);
-            mat.color = usedColor;
+            mat.color = Color;
 
             layerMeshRend.material = mat;
         }

@@ -19,6 +19,8 @@ public class WaterColorDropAnimation : MonoBehaviour
         public float targetAngle;
     }
 
+    public event Action<WaterColorDropAnimation> AnimationFinishedEvent;
+
     public float animDuration;
     public float maxScale = 4f;
 
@@ -42,6 +44,8 @@ public class WaterColorDropAnimation : MonoBehaviour
     public float scaleVariationMax = 0.1f;
 
     private WaterColorDrop _waterColorDrop;
+
+    public bool AnimRunning { get; set; }
 
     private void Awake()
     {
@@ -69,6 +73,8 @@ public class WaterColorDropAnimation : MonoBehaviour
         var layerAnimData = new List<LayerAnimData>();
         var gaussRandom = new System.Random(UnityEngine.Random.Range(0, 10000));
 
+        AnimRunning = true;
+        //
         for (int i = 0; i < layers.Count; i++)
         {
             //var variation = UnityEngine.Random.Range(variationMin, variationMax);
@@ -79,7 +85,7 @@ public class WaterColorDropAnimation : MonoBehaviour
             {
                 duration = animDuration * (1 - variation),
                 maxScale = maxScale * (1 - variation),
-                startAngle = layers[i].transform.localRotation.eulerAngles.z,
+                startAngle = 0,
                 targetAngle = (float) targetRandAngle
             });
 
@@ -87,17 +93,17 @@ public class WaterColorDropAnimation : MonoBehaviour
             layers[i].transform.localRotation = Quaternion.identity;            
         }
 
-        while (animTime < animDuration)
+        var layersActive = true;
+        while (layersActive)
         {
             animTime += Time.deltaTime;
-
-            var layersActive = false;
 
             for (int layerIdx = 0; layerIdx < layers.Count; layerIdx++)
             {
                 var layer = layers[layerIdx];
                 var layerData = layerAnimData[layerIdx];
 
+                layersActive = false;
                 if (animTime < layerData.duration)
                 {
                     layerData.normTime = animTime / layerData.duration;
@@ -110,10 +116,10 @@ public class WaterColorDropAnimation : MonoBehaviour
                 }
             }
 
-            if (!layersActive)
-                yield break;
-
             yield return null;
         }
+
+        AnimationFinishedEvent?.Invoke(this);
+        AnimRunning = false;
     }
 }
