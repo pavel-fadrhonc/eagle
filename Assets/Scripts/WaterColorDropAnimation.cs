@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Superbest_random;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WaterColorDropAnimation : MonoBehaviour
 {
@@ -23,9 +24,17 @@ public class WaterColorDropAnimation : MonoBehaviour
 
     public float animDuration;
     public float maxScale = 4f;
-
-    public float variationMin;
-    public float variationMax;
+    
+    [Tooltip("Random deviation in percent for scale, lower bound")]
+    public float scaleVariationMin = 0.1f;
+    [Tooltip("Random deviation in percent for scale, upper bound")]
+    public float scaleVariationMax = 0.1f;    
+    
+    [Tooltip("Random deviation in percent for duration, lower bound")]
+    public float durationVariationMin = 0.1f;
+    [Tooltip("Random deviation in percent for duration, upper bound")]
+    public float durationVariationMax = 0.3f;
+    
 
     [Tooltip("In degrees")]
     public float rotationAngleVarMin = -5f;
@@ -34,14 +43,6 @@ public class WaterColorDropAnimation : MonoBehaviour
     public AnimationCurve scaleCurve;
 
     public bool animate;
-
-    [Header("Obsolete")]
-    [Tooltip("How much variation in duration can there be. min: all layers will have same duration [0,1] max: layers can have 0-duration length")]
-    public float durationVariationMin = 0.1f;
-    public float durationVariationMax = 0.3f;
-
-    public float scaleVariationMin = 0.1f;
-    public float scaleVariationMax = 0.1f;
 
     private WaterColorDrop _waterColorDrop;
 
@@ -78,13 +79,14 @@ public class WaterColorDropAnimation : MonoBehaviour
         for (int i = 0; i < layers.Count; i++)
         {
             //var variation = UnityEngine.Random.Range(variationMin, variationMax);
-            var variation = (float) (gaussRandom.NextGaussian() + 1f) * 0.5f * (variationMax - variationMin) + variationMin;
-            var targetRandAngle = (gaussRandom.NextGaussian() + 1f) * 0.5f * (rotationAngleVarMax - rotationAngleVarMin) + rotationAngleVarMin;
+            var variationDuration = Random.Range(0f,1f) * (durationVariationMax - durationVariationMin) + durationVariationMin;
+            var variationScale = Random.Range(0f,1f) * (durationVariationMax - durationVariationMin) + durationVariationMin;
+            var targetRandAngle = Random.Range(0f,1f) * (rotationAngleVarMax - rotationAngleVarMin) + rotationAngleVarMin;
 
             layerAnimData.Add(new LayerAnimData()
             {
-                duration = animDuration * (1 - variation),
-                maxScale = maxScale * (1 - variation),
+                duration = animDuration * (1 - variationDuration),
+                maxScale = maxScale * (1 - variationScale),
                 startAngle = 0,
                 targetAngle = (float) targetRandAngle
             });

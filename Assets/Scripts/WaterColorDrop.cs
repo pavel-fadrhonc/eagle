@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Superbest_random;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class WaterColorDrop : MonoBehaviour
 {
@@ -49,13 +51,8 @@ public class WaterColorDrop : MonoBehaviour
     {
         get { return _layers; }
     }
-    private List<GameObject> _layers = new List<GameObject>();
-
-    // Use this for initialization
-    void Start ()
-    {
-        Regenerate();
-    }
+    
+    [HideInInspector] [SerializeField] private List<GameObject> _layers = new List<GameObject>();
 
     public void Update()
     {
@@ -66,8 +63,15 @@ public class WaterColorDrop : MonoBehaviour
         }
     }
 
+    private float _regenDuration;
+    private float _deformateDuration;
     public void Regenerate()
     {
+        Stopwatch regenStopWatch = new Stopwatch();
+        regenStopWatch.Start();
+        
+        Stopwatch deformatePolyStopWatch = new Stopwatch();
+        
         // Create Vector2 vertices
         Vector2[] vertices2D = new Vector2[startVerticesCount];
 
@@ -80,11 +84,13 @@ public class WaterColorDrop : MonoBehaviour
             vertices2D[i] = new Vector2(x, y);
         }
 
+        deformatePolyStopWatch.Start();
         for (int defIdx = 0; defIdx < numDeformationsInitial; defIdx++)
         {
             vertices2D = DeformatePolygon(vertices2D, gauss_um_initial, gauss_sigma_initial);
         }
-
+        deformatePolyStopWatch.Stop();
+        
         for (int layerIdx = 0; layerIdx < numLayers; layerIdx++)
         {
             GameObject layerGo;
@@ -92,7 +98,7 @@ public class WaterColorDrop : MonoBehaviour
             MeshFilter layerMeshFilter;
             if (layerIdx >= _layers.Count)
             {
-                layerGo = new GameObject("layer " + layerIdx);
+                layerGo = new GameObject($"layer {layerIdx}");
                 layerMeshRend = layerGo.AddComponent<MeshRenderer>();
                 layerMeshFilter = layerGo.AddComponent<MeshFilter>();
                 layerGo.transform.SetParent(transform);
@@ -110,10 +116,12 @@ public class WaterColorDrop : MonoBehaviour
 
             var layerVerts = vertices2D.Clone() as Vector2[];
 
+            deformatePolyStopWatch.Start();
             for (int addDefIdx = 0; addDefIdx < numDeformationsVariation; addDefIdx++)
             {
                 layerVerts = DeformatePolygon(layerVerts, gauss_um_addition, gauss_sigma_additional);
             }
+            deformatePolyStopWatch.Stop();
 
             // Use the triangulator to get indices for creating triangles
             Triangulator tr = new Triangulator(layerVerts);
@@ -140,6 +148,10 @@ public class WaterColorDrop : MonoBehaviour
 
             layerMeshRend.material = mat;
         }
+        
+        regenStopWatch.Stop();
+        Debug.Log($"{gameObject.name} regenerate duration: {regenStopWatch.Elapsed}");
+        Debug.Log($"{gameObject.name} deformate Polygon duration: {deformatePolyStopWatch.Elapsed}");
     }
 
     private Vector2[] DeformatePolygon(Vector2[] verts, float gauss_mu = 0f, float gauss_sigma = 1f)

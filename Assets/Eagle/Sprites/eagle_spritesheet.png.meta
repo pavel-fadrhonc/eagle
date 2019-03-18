@@ -1,0 +1,362 @@
+fileFormatVersion: 2
+guid: 004372eeeeec6c242b581a2e323862d6
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: eagle_spritesheet_0
+    21300002: eagle_spritesheet_1
+    21300004: eagle_spritesheet_2
+    21300006: eagle_spritesheet_3
+    21300008: eagle_spritesheet_4
+    21300010: eagle_spritesheet_5
+    21300012: eagle_spritesheet_6
+    21300014: eagle_spritesheet_7
+    21300016: eagle_spritesheet_8
+    21300018: eagle_spritesheet_9
+    21300020: eagle_spritesheet_10
+    21300022: eagle_spritesheet_11
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: eagle_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 8468
+        width: 1447
+        height: 1761
+      alignment: 9
+      pivot: {x: 0.49750403, y: 0.073395796}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08700594fc0cc574ba4a50fbcb405f86
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eagle_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 8432
+        width: 1442
+        height: 1680
+      alignment: 9
+      pivot: {x: 0.50275207, y: 0.07238828}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe98a0a61f325c45949910b56d48067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eagle_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 6619
+        width: 1468
+        height: 1499
+      alignment: 9
+      pivot: {x: 0.5027036, y: 0.09224477}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce683094aab44e4a9176e4a806e02ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eagle_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 2215
+        y: 6640
+        width: 1473
+        height: 1164
+      alignment: 9
+      pivot: {x: 0.50808316, y: 0.12833281}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ed18e8c750f1047a18e600564a5589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eagle_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 5116
+        width: 1494
+        height: 769
+      alignment: 9
+      pivot: {x: 0.49203008, y: 0.17484151}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54166ab288486834e96beeb78e948679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eagle_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 5131
+        width: 1433
+        height: 450
+      alignment: 9
+      pivot: {x: 0.50276953, y: 0.41179904}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b3e1529c9d81d4c862fdd2f8ea2d4c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eagle_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 3789
+        width: 1509
+        height: 648
+      alignment: 9
+      pivot: {x: 0.5026301, y: 0.78174883}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 833d55ac7fffd624298b65fb05d9768d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eagle_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 2438
+        y: 3552
+        width: 1473
+        height: 946
+      alignment: 9
+      pivot: {x: 0.5026945, y: 0.80207884}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6730902cf001f714881577034a2b32bd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eagle_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1805
+        width: 1509
+        height: 1189
+      alignment: 9
+      pivot: {x: 0.5052603, y: 0.86385167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4258af7c2a39d3448a9df69c2b5fd143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eagle_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 2154
+        y: 1860
+        width: 1458
+        height: 1221
+      alignment: 9
+      pivot: {x: 0.49999982, y: 0.8575664}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50d73b83934305847b12b9feb2404045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eagle_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 89
+        width: 1458
+        height: 1108
+      alignment: 9
+      pivot: {x: 0.50544435, y: 0.7758231}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9892af9b844bc624db9d589e8e2ed993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eagle_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 499
+        width: 1492
+        height: 896
+      alignment: 9
+      pivot: {x: 0.49999985, y: 0.5442963}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d0352c50628d7348906defc865a6b93
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b0d70e253407f5c44a995d8402d559bb
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

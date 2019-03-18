@@ -13,10 +13,11 @@ public class WaterDropGenerator : MonoBehaviour
     public List<Color> colorPool = new List<Color>();
     public Vector2 sizeSpan;
     public Vector2 intervalSpan;
+    [Tooltip("offset for spawning of drops in screenspace")]
+    public Vector2 spawnOffset;
 
     private List<Tuple<WaterColorDrop, WaterColorDropAnimation>> m_activeDropAnims = new List<Tuple<WaterColorDrop, WaterColorDropAnimation>>();
 
-    // Use this for initialization
     void Start()
     {
         m_nextSpawnTime = Random.Range(intervalSpan.x, intervalSpan.y);
@@ -65,7 +66,7 @@ public class WaterDropGenerator : MonoBehaviour
         var randX = (float) (m_Random.NextGaussian() + 3) / 6f;
         var randY = (float) (m_Random.NextGaussian() + 3) / 6f;
 
-        var worldPos = Camera.main.ViewportToWorldPoint(new Vector3(randX, randY, 0));
+        var worldPos = Camera.main.ViewportToWorldPoint(new Vector3(randX + spawnOffset.x, randY + spawnOffset.y, 0));
         worldPos.z = 0;
 
         // get color
@@ -79,7 +80,7 @@ public class WaterDropGenerator : MonoBehaviour
         var anim = waterDrop.GetComponent<WaterColorDropAnimation>();
 
         anim.maxScale = size;
-        //anim.AnimationFinishedEvent += OnAnimationEventFinished;
+        anim.AnimationFinishedEvent += OnAnimationEventFinished;
         anim.Animate();
     }
 
