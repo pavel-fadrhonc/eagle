@@ -30,7 +30,13 @@
 		Cull Off
 		Lighting Off
 		ZWrite Off
-		Blend One OneMinusSrcAlpha		
+		Blend One OneMinusSrcAlpha	
+		
+        Stencil {
+            Ref 1
+            Comp Always
+            Pass Replace
+        }			
 		
         Pass
         {
@@ -59,14 +65,14 @@
             {
                 fixed4 col = SampleSpriteTexture(IN.texcoord) * IN.color;
             
-                fixed3 hsb = fixed3(IN.texcoord.x * IN.texcoord.y, 1.0, 1.0);
-                fixed3 rgb = clamp(
-                                abs(
-                                    (hsb.x*6.0+fixed3(0.0,4.0,2.0)) % 6.0-3.0)-1.0, 0.0, 1.0 );  
-                rgb = rgb*rgb*(3.0-2.0*rgb);
-                rgb = hsb.z * lerp(fixed3(1.0,1.0,1.0), rgb, hsb.y);
-
-                fixed4 rainbowCol = fixed4(rgb.r,rgb.g,rgb.b, col.a) * col.a;
+//                fixed3 hsb = fixed3(IN.texcoord.x * IN.texcoord.y, 1.0, 1.0);
+//                fixed3 rgb = clamp(
+//                                abs(
+//                                    (hsb.x*6.0+fixed3(0.0,4.0,2.0)) % 6.0-3.0)-1.0, 0.0, 1.0 );  
+//                rgb = rgb*rgb*(3.0-2.0*rgb);
+//                rgb = hsb.z * lerp(fixed3(1.0,1.0,1.0), rgb, hsb.y);
+//
+//                fixed4 rainbowCol = fixed4(rgb.r,rgb.g,rgb.b, col.a) * col.a;
                 
 				if (_Outline > 0 && col.a != 0) {
 					float totalAlpha = 1.0;
@@ -82,11 +88,13 @@
 					}
 
 					if (totalAlpha == 0) {
-						rainbowCol.rgba = fixed4(1, 1, 1, 1) * _OutlineColor;
+						col.rgba = fixed4(1, 1, 1, 1) * _OutlineColor;
 					}
-				}                
+				}   
+
+                col.rgb *= col.a;             
                 
-                return rainbowCol;
+                return col;
             }
             ENDCG
         }
