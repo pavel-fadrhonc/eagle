@@ -5,6 +5,25 @@ namespace EagleProject
 {
     public class EagleAnim : MonoBehaviour
     {
+        public struct FrameSet
+        {
+            public FrameSet(int startFrame, int endFrame)
+            {
+                this.startFrame = startFrame;
+                this.endFrame = endFrame;
+            }
+            
+            public int startFrame;
+            public int endFrame;
+
+            public static FrameSet Lerp(FrameSet fs1, FrameSet fs2, float t)
+            {
+                return new FrameSet((int) Mathf.Lerp(fs1.startFrame, fs2.startFrame, t),
+                    (int) Mathf.Lerp(fs1.endFrame, fs2.endFrame, t));
+            }
+        }
+        
+        
         public List<Sprite> frames;
         public int fps;
 

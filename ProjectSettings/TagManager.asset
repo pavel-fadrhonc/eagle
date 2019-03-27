@@ -44,3 +44,6 @@ TagManager:
   - name: Eagle
     uniqueID: 493310873
     locked: 0
+  - name: Effect
+    uniqueID: 3934272325
+    locked: 0
